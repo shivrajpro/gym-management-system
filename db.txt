@@ -1,0 +1,39 @@
+1.drop database GMS;
+
+2. create table per_info (image longblob, Reg_ID varchar(20) primary key, First_Name varchar(20), Last_Name varchar(20), Contact varchar(20), Address varchar(100), Gender varchar(20), Email varchar(20), Age varchar(5));
+
+
+3. create table gym_info (Reg_ID int, Weight int, Height int, Subscription varchar(15),  Amount int, Fee_Status varchar(15), Start_Date date, End_Date date, Trainer varchar(15), Facility varchar(15), Balance int, Fee_Date date, Due_Date date);
+
+
+4. create view all_mem as select p.Reg_ID,p.First_Name,p.Last_Name,p.Contact,p.Gender,g.Subscription,g.Start_Date,g.End_Date, g.Facility,g.Amount,g.Fee_Status,g.Balance from per_info p,gym_info g where p.Reg_ID=g.Reg_ID;
+
+
+5. create table col (Collection_Date date, Amount varchar(20));
+
+6.create table enquiry (Name varchar(25), Contact varchar(25), Gender varchar(25),Email varchar(25), Occupation varchar(25), Date date);
+
+
+7. create table equipment (ID int(2), Name varchar(15), Quantity varchar(15), Cost_Per_Unit varchar(15), Total_Cost varchar(15));
+
+8. create table login (password varchar(20),SecQ varchar(100),Answer varchar(50));
+
+9. create view mem_trainer as select p.Reg_ID,p.First_Name,p.Last_Name,p.Contact,p.Gender,p.Age,g.Weight,g.Height, g.Subscription,g.Start_Date,g.End_Date,g.Trainer from per_info p,gym_info g where p.Reg_ID=g.Reg_ID;
+
+
+10. create view reminder as select p.Reg_ID,p.First_Name,p.Last_Name,p.Contact,p.Gender,g.Subscription, g.Start_Date,g.End_Date,g.Amount,g.Fee_Status,g.Balance,g.Fee_Date,g.Due_Date from per_info p,gym_info g where p.Reg_ID=g.Reg_ID;
+
+
+11. create table subs (Subscription_Name varchar(10));
+
+
+12. create table trainer (Reg_ID int(3) primary key, Name varchar(30), Age int(3), Gender varchar(30), Package varchar(30), Contact varchar(30), email varchar(30), Join_Date date);
+
+
+13.create table fac(Facility_Name varchar(50));
+
+14. create view total_col as select Collection_Date,sum(Amount) as Total from col group by Collection_Date order by Collection_Date;
+
+15. insert into login values('1234','What was your school name?','ntr');
+
+
